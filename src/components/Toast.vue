@@ -27,7 +27,7 @@ export default {
   setup () {
     // 定义一个对象，包含三种情况的样式，对象key就是类型字符串
     const visible = ref(false);
-    const style = {
+    const style : any = {
       toast: {
         icon: 'icon-warning',
         color: '#fff',
