@@ -9,7 +9,7 @@
   </Transition>
 
 </template>
-<script>
+<script lang="ts">
 import { ref, onMounted } from 'vue'
 export default {
   name: 'XtxMessage',
