@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "sa-sdk-javascript": "^1.22.2",
     "vue": "^3.2.41"
   },
   "devDependencies": {
