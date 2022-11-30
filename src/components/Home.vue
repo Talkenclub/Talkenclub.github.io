@@ -28,6 +28,14 @@
     <div class="content tk_bg">
       <h1>Talken to Evervone</h1>
       <p>lalken Is a voice community application ir me Won… Where oeoble cal elk about hot Web3 topics and make Web3 siriends al an ime. In the nor room. Vou can earn bonuses by discussing and interacting</p>
+      <img
+        class="hand"
+        src="../assets/images/hand.png"
+        srcset="
+        ../assets/images/hand@2x.png 2x,
+        ../assets/images/hand@2x.png 3x
+          "
+        alt="hand">
     </div>
   </div>
   <div class="fconomic_system">
@@ -108,7 +116,10 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import icon from '../assets/images/test.png'
+import icon1 from '../assets/images/icon1.png'
+import icon2 from '../assets/images/icon2.png'
+import icon3 from '../assets/images/icon3.png'
+import icon4 from '../assets/images/icon4.png'
 // @ts-ignore
 import { sendEmail } from '../utils/api'
 
@@ -136,9 +147,12 @@ function send (){
     window.$toast({text:'Please enter the correct email address'})
     return
   }
-  // @ts-ignore
-  window.$toast({text:'Subscribe successfully'})
+  
   sendEmail({email:sEmail}).then((res: any) => {
+    if(res.status == 200){
+      // @ts-ignore
+      window.$toast({text:'Subscribe successfully'})
+    }
     console.log(res)
   })
 }
@@ -148,22 +162,22 @@ const functionList = [
   {
     title:'Web3 native',
     desc:'Talken is vertical to the Web3 field, serving the Web3 community and users with a more native experience, where you can discuss Web3 hot topics and use your NFT in the community.',
-    img: icon
+    img: icon1
   },
   {
     title:'Chat with watch',
     desc:'In Talken, people can chat and follow interesting information. For example, people can chat and watch the market in the room, follow the trend of cryptocurrency, and share and follow more information.',
-    img: icon
+    img: icon2
   },
   {
     title:'Gift mining',
     desc:"In Talken you don't need to spend money to buy gifts, just chat or listen in the room, you can continue to get free gifts, you can send gifts to get bonuses.",
-    img: icon
+    img: icon3
   },
   {
     title:'Interactive 2earn',
     desc:'Talken changed the traditional economic model, created an interactive economic system, earned bonuses through effective interaction in the room, and eliminated cheating and robots.',
-    img: icon
+    img: icon4
   },
 ]
 </script>
@@ -277,6 +291,10 @@ header .content{
   background-size: 817px 700px;
   background-repeat: no-repeat;
 }
+.tk_bg .hand{
+  width: 100px;
+  margin-top: 104px;
+}
 .tk_bg h1{
   width: 293px;
   font-size: 64px;
@@ -352,8 +370,8 @@ header .content{
   margin-top: 73px;
 }
 .function .content .item img{
-  width: 80px;
-  height: 80px;
+  width: 56px;
+  height: 56px;
 }
 .function .content .item h1{
   font-size: 36px;
