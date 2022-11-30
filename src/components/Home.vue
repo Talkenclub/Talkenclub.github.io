@@ -109,6 +109,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import icon from '../assets/images/test.png'
+// @ts-ignore
+import { sendEmail } from '../utils/api'
 
 const emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
 
@@ -119,6 +121,7 @@ let sEmail = ''
 onMounted(() => {
   // @ts-ignore
   // window.$toast({text:'test'})
+  // console.log(import.meta.env.VITE_APP_URL)
 })
 
 function down () {
@@ -135,6 +138,9 @@ function send (){
   }
   // @ts-ignore
   window.$toast({text:'Subscribe successfully'})
+  sendEmail({email:sEmail}).then((res: any) => {
+    console.log(res)
+  })
 }
 
 const count = ref(0)

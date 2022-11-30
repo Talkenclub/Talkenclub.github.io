@@ -161,7 +161,6 @@ textarea,
 select {
   font-size: inherit;
   font-weight: inherit;
-  *font-size: 100%;
   /*to enable resizing for IE*/
   width: auto;
   overflow: visible;
