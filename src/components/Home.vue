@@ -99,10 +99,10 @@
         alt="share_m">
     <img src="../assets/images/share_t.png"
         srcset="
-        ../assets/images/share_tt@2x.png 2x,
-        ../assets/images/share_tt@2x.png 3x
+        ../assets/images/share_t@2x.png 2x,
+        ../assets/images/share_t@2x.png 3x
           "
-        alt="share_tt">
+        alt="share_t">
   </div>
 </template>
 
