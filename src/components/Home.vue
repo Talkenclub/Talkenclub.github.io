@@ -120,6 +120,7 @@ import icon1 from '../assets/images/icon1.png'
 import icon2 from '../assets/images/icon2.png'
 import icon3 from '../assets/images/icon3.png'
 import icon4 from '../assets/images/icon4.png'
+import axios from 'axios'
 // @ts-ignore
 import { sendEmail } from '../utils/api'
 
@@ -147,14 +148,27 @@ function send (){
     window.$toast({text:'Please enter the correct email address'})
     return
   }
-  
-  sendEmail({email:sEmail}).then((res: any) => {
-    if(res.status == 200){
-      // @ts-ignore
-      window.$toast({text:'Subscribe successfully'})
+  axios.post('http://api.talken.club/audio-room/v1/voicehome/subscribeemail',{
+    email:sEmail
+  },{
+    headers:{
+      'Content-Type':'multipart/form-data'
     }
-    console.log(res)
+  }).then(res=>{
+    // @ts-ignore
+    window.$toast({text:'Subscribe success'})
+  }).catch(err=>{
+    // @ts-ignore
+    window.$toast({text:'Subscribe failed'})
   })
+  
+  // sendEmail({email:sEmail}).then((res: any) => {
+  //   if(res.status == 200){
+  //     // @ts-ignore
+  //     window.$toast({text:'Subscribe successfully'})
+  //   }
+  //   console.log(res)
+  // })
 }
 
 const count = ref(0)
