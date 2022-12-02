@@ -148,7 +148,7 @@ function send (){
     window.$toast({text:'Please enter the correct email address'})
     return
   }
-  axios.post('https://api.talken.club/audio-room/v1/voicehome/subscribeemail',{
+  axios.post('https://voice.partychat.live/audio-room/v1/voicehome/subscribeemail',{
     email:sEmail
   },{
     headers:{
