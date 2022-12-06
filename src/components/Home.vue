@@ -2,7 +2,7 @@
   <header>
     <div class="content">
       <img class="logo" src="../assets/images/logo.png" alt="logo">
-      <div class="whitepaper_btn">Whitepaper</div>
+      <div class="whitepaper_btn" @mousedown="handelMousedown($event)" @mouseup="handelMouseup($event)">Whitepaper</div>
     </div>
   </header>
   <div class="banner">
@@ -16,11 +16,11 @@
       <h1>Voice club for Web3</h1>
       <p>Explore, discover, discuss, earn here</p>
       <div class="btn_box">
-        <div class="download" @click="down">
+        <div class="download" @click="down" @mousedown="handelMousedown($event)" @mouseup="handelMouseup($event)">
           <img src="../assets/images/download_icon.png" alt="">
           download
         </div>
-        <div class="whitepaper">Whitepaper</div>
+        <div class="whitepaper" @mousedown="handelMousedown($event)" @mouseup="handelMouseup($event)">Whitepaper</div>
       </div>
     </div>
   </div>
@@ -87,7 +87,7 @@
       <h1>Email subscription Get more information</h1>
       <div class="send_box">
         <input type="text" v-model="sEmail" placeholder="Please enter your email address">
-        <div class="send" @click="send">Subscribe</div>
+        <div class="send" @click="send" @mousedown="handelMousedown($event)" @mouseup="handelMouseup($event)">Subscribe</div>
       </div>
       <p class="copyright">Copyright © 2022</p>
     </div>
@@ -135,6 +135,13 @@ onMounted(() => {
   // window.$toast({text:'test'})
   // console.log(import.meta.env.VITE_APP_URL)
 })
+
+function handelMousedown (e: any) {
+  e.target.style.opacity = '0.7'
+}
+function handelMouseup (e: any) {
+  e.target.style.opacity = '1'
+}
 
 function down () {
   // @ts-ignore
@@ -263,6 +270,10 @@ header .content{
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+}
+.actived{
+  opacity: 0.7;
 }
 .btn_box .download img{
   width: 24px;
@@ -369,7 +380,7 @@ header .content{
   width: 232px;
   height: 332px;
   padding: 24px;
-  background: rgba(255,255,255,0.1);
+  background: linear-gradient(180deg, rgba(0,232,87,0.2) 0%, rgba(255,255,255,0.1) 100%);
   border-radius: 36px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   margin-right: 27px;
@@ -380,8 +391,9 @@ header .content{
 .function .content .item:last-child{
   margin-right: 0;
 }
-.function .marginTop{
+.function .content .marginTop{
   margin-top: 73px;
+  background: linear-gradient(180deg, rgba(233,206,0,0.3) 0%, rgba(255,255,255,0.1) 100%);
 }
 .function .content .item img{
   width: 56px;
